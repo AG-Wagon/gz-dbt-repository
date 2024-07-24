@@ -32,3 +32,53 @@ sources:
             tests:
               - unique
               - not_null          
+
+      - name: adwords
+        identifier: raw_gz_adwords
+      - name: bing
+        identifier: raw_gz_bing
+      - name: criteo
+        identifier: raw_gz_criteo
+      - name: facebook
+        identifier: raw_gz_facebook
+
+models:
+  - name: int_campaigns
+    description: group of all our ad campaign
+    columns:
+      - name: "date_date || campaign_key"
+        description: primary_key
+        tests:
+          - unique
+          - not_null
+      - name: paid_source
+        description: listing of whom we paid
+        tests:
+          - not_null  
+      - name: campaign_name
+        description: listing of names of campaigns
+        tests:
+          - not_null 
+      - name: ads_cost
+        description: listing of the price of the campaign
+        tests:
+          - not_null 
+      - name: impression
+        description: results of views
+        tests:
+          - not_null 
+      - name: click
+        description: listing of transformation
+        tests:
+          - not_null 
+
+  - name: int_campaigns_day
+    description: aggregation of the impact of our ads campaigns per day
+    columns:
+      - name: date_date
+        tests:
+          - unique
+  - name: finance_campaigns_day
+    description: aggregation of the ads margin per day
+      
+
